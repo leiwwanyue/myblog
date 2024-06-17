@@ -1,0 +1,60 @@
+/* 在你的 CSS 文件中添加以下样式 */
+
+.category-list {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          display: flex; /* 横向排列 */
+        }
+
+        .category-item {
+          margin-right: 10px; /* 调整类别之间的间距 */
+        }
+
+        .category-link {
+          text-decoration: none;
+          color: #000;
+        }
+
+        .category-link:hover {
+          background-color: #f0f0f0; /* 鼠标移动到类别上时的背景颜色 */
+        }
+        .carousel-item img {
+           max-height: 400px;  /* 固定高度 */
+           object-fit: cover;  /* 确保图片按比例缩放 */
+           width: 100%;  /* 确保图片宽度适应容器 */
+        }
+        .carousel slide {
+           max-height: 400px;
+        }
+
+        .row_mt-5 {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 20px;
+    }
+    .user-list {
+        width: 200px; /* 左侧宽度 */
+        height: 400px; /* 固定显示10行 */
+        overflow-y: auto; /* 垂直滚动 */
+        border: 1px solid #ccc; /* 外框效果 */
+        padding: 10px;
+    }
+    .blog-list {
+        flex: 1; /* 填充剩余空间 */
+        padding: 10px;
+    }
+
+    .container-header{
+     display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 10px;
+    }
+    .search-container {
+    flex:1;
+    padding: 10px;
+    }
+    .login-container {
+ width: 200px;
+        padding: 10px;
+    }

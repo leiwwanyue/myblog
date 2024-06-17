@@ -1,0 +1,38 @@
+<!-- templates/search.html -->
+
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <h1>Search Results</h1>
+    {% for result in results %}
+    <div class="card mb-3">
+        <div class="card-body">
+            <h5 class="card-title"><a href="{{ result.object.get_absolute_url }}">{{ result.title }}</a></h5>
+            <p class="card-text">{{ result.content }}</p>
+        </div>
+    </div>
+    {% empty %}
+    <p>No results found.</p>
+    {% endfor %}
+
+    {% if is_paginated %}
+    <div class="pagination">
+                <span class="step-links">
+                    {% if page.has_previous %}
+                        <a href="?q={{ query }}&page=1">&laquo; first</a>
+                        <a href="?q={{ query }}&page={{ page.previous_page_number }}">previous</a>
+                    {% endif %}
+
+                    <span class="current">
+                        Page {{ page.number }} of {{ page.paginator.num_pages }}.
+                    </span>
+
+                    {% if page.has_next %}
+                        <a href="?q={{ query }}&page={{ page.next_page_number }}">next</a>
+                        <a href="?q={{ query }}&page={{ page.paginator.num_pages }}">last &raquo;</a>
+                    {% endif %}
+                </span>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

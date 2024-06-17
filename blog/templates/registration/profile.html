@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <!-- 引入Bootstrap样式 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h1 class="text-center">User Profile</h1>
+                <div class="card">
+                    <div class="card-body">
+
+                        {% if user.pk == request.user.pk %}
+                            <a href="{% url 'update_profile' user.pk %}" class="btn btn-primary">Update Profile</a>
+                        {% endif %}
+
+                        <h5 class="card-title">Username: {{ user.username }}</h5>
+                        <p class="card-text">Age: {{ user.age }}</p>
+                        <p class="card-text">Gender: {{ user.gender }}</p>
+                        <p class="card-text">Interests: {{ user.interests }}</p>
+                        <p class="card-text">Date of Birth: {{ user.date_of_birth }}</p>
+                        {% if user.is_staff %}
+                        <p class="card-text">Is Staff: {{ user.is_staff }}</p>
+                        {% endif %}
+                        <p class="card-text">Email: {{ user.email }}</p>
+
+                        <!-- 如果用户有头像，显示头像 -->
+                        {% if user.avatar %}
+                        <img src="{{ user.avatar.url }}" class="card-img-top" alt="User Avatar">
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 引入Bootstrap的JavaScript -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shCk5KVbZWfGTKwFg8Nq2rs5f8+1F0nLsN6UJ0Z" crossorigin="anonymous"></script>
+</body>
+</html>

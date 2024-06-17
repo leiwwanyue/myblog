@@ -1,0 +1,13 @@
+# .gitignore
+# Django
+*.pyc
+__pycache__/
+db.sqlite3
+media/
+
+# Node
+node_modules/
+dist/
+
+# VSCode settings (if you are using VSCode)
+.vscode/

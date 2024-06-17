@@ -1,0 +1,168 @@
+body{
+    background-color: #f3f7f9;
+      font-family: Arial, sans-serif;
+}
+#main-container {
+ display: flex;
+    align-items: center;
+     justify-content: center;
+    height: 100%;
+}
+.main {
+ display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    width: 600px;
+}
+.auth-content {
+    margin: 0 0 0 150px;
+    padding: 30px 60px 0;
+    width: 100%;
+    max-width: 600px;
+}
+.auth-form{
+    padding:40px;
+    border:1px solid #ccc;
+    background-color: #fff;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 10px rgba(0,0,0,.3);
+    border-radius: 10px;
+}
+.auth-form h2 {
+    margin-bottom: 40px;
+    font: bold 16px/24px "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: #0d0c22;
+    padding:15px 25px;
+    color:#fff;
+    text-align: center;
+    font-weight: normal;
+    border-radius: 3px;
+}
+.auth-form label {
+    display: block;
+    margin: 14px 0 4px;
+    color: #0d0c22;
+    font: normal 14px/24px "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.auth-form input.text-input{
+    width: 100%;
+    margin-right: 8px;
+    border-radius: 8px;
+    line-height: 26px;
+    padding:10px 16px;
+    font-size: 16px;
+    box-sizing: border-box;
+    outline: none;
+    color: #0d0c22;
+    border: 1px solid #e7e7e9;
+    margin-bottom: 20px;
+}
+input:hover[type='text'], input:hover[type='password']{
+    border-color: rgba(0,0,0,0.1);
+    background-color: #fff;
+    box-shadow: 0 0 0 4px rgba(234,76,137,0.1);
+}
+input:active[type='text'], input:active[type='password']{
+    border-color: #e7e7e9;
+    background-color: #fff;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+input:focus[type='text'], input:focus[type='password']{
+    background-color: #fff;
+    box-shadow: 0 0 0 4px rgba(234,76,137,0.1);
+}
+.btn2, a.btn2 {
+    box-sizing: border-box;
+    width: 416px;
+    height: 56px;
+    padding: 0 16px;
+    overflow: hidden;
+    transition: 0.15s cubic-bezier(0.32, 0, 0.59, 0.03);
+    border:0px solid #0d0c22;
+    border-radius: 3px;
+    background-color:#cf3f1c ;
+    color: #fff;
+    font-family: inherit;
+    font-size:14px;
+    font-weight: 500;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    margin-top: 20px;
+}
+.shortcut-action{
+    margin-top:30px;
+}
+.shortcut-action .login{
+    float:left;
+}
+.shortcut-action .login a{
+    color:#ff7300;
+}
+.shortcut-action .forgot{
+    float:bottom
+}
+.shortcut-action .forgot a{
+    color:#222;
+}
+ .tabs {
+            display: flex;
+    cursor: pointer;
+    margin-bottom: 0; /* 确保标签与内容容器间距紧凑 */
+    border-bottom: 1px solid #ccc; /* 添加底部边框，视觉上分隔标签和内容 */
+     position: relative;
+        }
+
+        .tab {
+            padding: 10px 20px;
+            border: 1px solid #ccc;
+            border-bottom: none;
+            background-color: #f1f1f1;
+            margin-right: 5px;
+        }
+
+        .tab-content {
+            border: 1px solid #ccc;
+            padding: 20px;
+            display: none;
+        }
+
+        input[type="radio"] {
+            display: none;
+        }
+
+/* 选中标签的样式 */
+input[type="radio"]:checked + label {
+    background-color: #fff;
+    border-top: 2px solid #007BFF;
+    font-weight: bold;
+}
+
+  /* 选中标签对应内容的显示样式 */
+input[type="radio"]:checked + label + .tab-content {
+    display: block;
+}
+
+        /* For label styling when using tab as buttons */
+        label {
+    display: block;
+    padding: 10px 20px;
+    margin-right: 5px;
+    border: 1px solid #ccc;
+    border-bottom: none; /* 取消标签底部边框，以实现视觉连接 */
+    background-color: #f1f1f1;
+    cursor: pointer;
+        }
+        /* 取消默认 list 样式和 margin/padding */
+ul.tabs {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+        .login{
+        padding:5px;
+        }

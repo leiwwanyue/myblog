@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ post.title }}</title>
+</head>
+<body>
+
+<div>
+    <h1>{{ post.title }}</h1>
+    <p>{{ post.content }}</p>
+    <p>Author: {{ post.author.username }}</p>
+    <p>Published on: {{ post.created_at }}</p>
+</div>
+
+<!-- comment -->
+<div>
+    <h3>Leave a Comment</h3>
+    <form method="post" action="{% url 'add_comment' %}">
+        {% csrf_token %}
+        <input type="hidden" name="article_id" value="{{ article.id }}">
+        <input type="text" name="author" placeholder="Your name" required><br>
+        <textarea name="content" placeholder="Your comment" required></textarea><br>
+        <button type="submit">Submit</button>
+    </form>
+    {% if article.comment_set.all %}
+    <h3>Comments</h3>
+    <ul>
+        {% for comment in article.comment_set.all %}
+        <li>{{ comment.author }} - {{ comment.created_at|date:"F d, Y, h:i a" }}:<br>{{ comment.content }}</li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No comments yet.</p>
+    {% endif %}
+</div>
+</body>
+</html>

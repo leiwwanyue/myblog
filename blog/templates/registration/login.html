@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+
+    <!-- 引入 Vue 3 的静态文件 -->
+    <script src="{% static 'vue/js/app.37a9fb43.js' %}" defer></script>
+    <script src="{% static 'vue/js/chunk-vendors.6b7a5a13.js' %}" defer></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'vue/css/app.93a576ff.css' %}">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // 当点击验证码图片时，刷新验证码
+        $('.captcha').click(function () {
+                $.getJSON('/captcha/refresh/',function (result) {
+                    $('.captcha').attr('src',result['image_url']);
+                    $('#id_captcha_0').val(result['key']);
+                });
+            });
+    </script>
+    <style>
+        .focusable {
+            padding: 10px;
+            margin: 10px;
+            border: 1px solid #ccc;
+            outline: none;
+        }
+        .focusable:focus {
+            border-color: #007BFF;
+            background-color: #E9F7FF;
+        }
+    </style>
+</head>
+<body>
+<div id="main-container">
+    <div class="main">
+        <div class="auth-content">
+            <div class="auth-form">
+                <div class="tabs">
+
+                    <input type="radio" id="tab1" name="tab-group" checked>
+                    <label for="tab1">邮箱登录</label>
+                    <div class="tab-content">
+                        {% if error_message %}
+                        <p>{{ error_message }}</p>
+                        {% endif %}
+                        <form method="post">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                        </form>
+
+                        <div class="clearfix shortcut-action">
+                            <span class="login"><button type="submit">登录</button></span>
+                            <span class="forgot"><a href="{% url 'password_reset_request' %}">忘记密码</a></span>
+                        </div>
+                    </div>
+
+                    <input type="radio" id="tab2" name="tab-group">
+                    <label for="tab2">手机登录</label>
+                    <div class="tab-content" id="app">
+                        <login-with-sms></login-with-sms>
+                    </div>
+
+                       <!-- CSRF token -->
+    <input type="hidden" id="csrf_token" name="csrfmiddlewaretoken" value="{% csrf_token %}">
+
+                    <input type="radio" id="tab3" name="tab-group">
+                    <label for="tab3">扫码登录</label>
+                    <div class="tab-content">
+                        <h2>Content 3</h2>
+                        <p>This is the content of tab 3.</p>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!-- templates/base.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Blog{% endblock %}</title>
+    <!-- 其他头部元信息，如CSS链接、JavaScript链接等 -->
+</head>
+<body>
+
+<nav>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="{% url 'about' %}">About</a></li>
+        <!-- 其他导航链接 -->
+    </ul>
+</nav>
+
+{% block content %}
+<!-- 页面内容将在此处呈现 -->
+{% endblock %}
+
+<footer>
+    <!-- 页脚内容 -->
+</footer>
+
+<!-- 其他JavaScript代码，如jQuery、Bootstrap等 -->
+
+</body>
+</html>

@@ -1,0 +1,3 @@
+<!-- templates/search/indexes/blog/post_text.txt -->
+{{ object.title }}
+{{ object.content }}
